@@ -274,3 +274,35 @@ type User struct {
 		Timezone         string   `json:"timezone,omitempty"`
 	} `json:"user,omitempty"`
 }
+
+// Logs is for GET /v3/reporting/logs.json
+type Logs struct {
+	Limit       int    `json:"limit,omitempty"`
+	NextPageKey string `json:"next_page_key,omitempty"`
+	Page        int    `json:"page,omitempty"`
+	Records     []struct {
+		Asn         string  `json:"asn,omitempty"`
+		Bytes       int     `json:"bytes,omitempty"`
+		CacheStatus string  `json:"cache_status,omitempty"`
+		City        string  `json:"city,omitempty"`
+		Continent   string  `json:"continent,omitempty"`
+		Country     string  `json:"country,omitempty"`
+		Dma         string  `json:"dma,omitempty"`
+		Hostname    string  `json:"hostname,omitempty"`
+		Ip          string  `json:"ip,omitempty"`
+		Latitude    float64 `json:"latitude,omitempty"`
+		Longitude   float64 `json:"longitude,omitempty"`
+		Method      string  `json:"method,omitempty"`
+		OriginTime  string  `json:"origin_time,omitempty"`
+		Pop         string  `json:"pop,omitempty"`
+		Protocol    string  `json:"protocol,omitempty"`
+		QueryString string  `json:"query_string,omitempty"`
+		RequestTime string  `json:"request_time,omitempty"`
+		Scheme      string  `json:"scheme,omitempty"`
+		StatusCode  int     `json:"status_code,omitempty"`
+		Uri         string  `json:"uri,omitempty"`
+		UserAgent   string  `json:"user_agent,omitempty"`
+		Zone        string  `json:"zone,omitempty"`
+	} `json:"records,omitempty"`
+	Total int `json:"total,omitempty"`
+}

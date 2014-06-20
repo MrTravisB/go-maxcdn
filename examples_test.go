@@ -269,7 +269,6 @@ func ExampleStats() {
 	}
 }
 
-
 /****
  * These "Functional" examples are meant to be functional integration tests.
  * To run these as integration tests export your ALIAS, TOKEN and SECRET

@@ -17,6 +17,14 @@ func TestEndpoint(T *testing.T) {
 	Go(T).AssertEqual(Endpoint.Reports.Stats, "/reports/stats.json")
 	Go(T).AssertEqual(Endpoint.Reports.StatsBy("hourly"), "/reports/stats.json/hourly")
 
+	//Reports
+	Go(T).AssertEqual(Endpoint.Reports.PopularFiles, "/reports/popularfiles.json")
+	Go(T).AssertEqual(Endpoint.Reports.Stats, "/reports/stats.json")
+	Go(T).AssertEqual(Endpoint.Reports.StatsBy("hourly"), "/reports/stats.json/hourly")
+
+	//Reporting.Logs
+	Go(T).AssertEqual(Endpoint.Reporting.Logs, "/v3/reporting/logs.json")
+
 	//Zones
 	Go(T).AssertEqual(Endpoint.Zones.Pull, "/zones/pull.json")
 	Go(T).AssertEqual(Endpoint.Zones.PullBy(12345), "/zones/pull.json/12345")

@@ -10,6 +10,7 @@ type endpoints struct {
 	Reports        *reports
 	Zones          *zones
 	Users          string
+	Reporting      *reporting
 }
 
 // User: Endpoint.User("johndoe")
@@ -21,6 +22,10 @@ func (e *endpoints) User(userId string) string {
 type reports struct {
 	PopularFiles string
 	Stats        string
+}
+
+type reporting struct {
+	Logs string
 }
 
 type zones struct {
@@ -86,6 +91,9 @@ func (z *zones) PullCacheByString(t string) string {
 var Endpoint = endpoints{
 	Account:        "/account.json",
 	AccountAddress: "/account.json/address",
+	Reporting: &reporting{
+		Logs: "/v3/reporting/logs.json",
+	},
 	Reports: &reports{
 		PopularFiles: "/reports/popularfiles.json",
 		Stats:        "/reports/stats.json",

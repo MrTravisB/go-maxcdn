@@ -115,3 +115,16 @@ func TestUser(T *testing.T) {
 	Go(T).AssertEqual(data.User.Firstname, "joshua")
 }
 
+func TestLogs(T *testing.T) {
+	max := NewMaxCDN("alias", "token", "secret")
+
+	var recorder http.Response
+	max.HTTPClient = stubHTTPOkRecorded(&recorder)
+
+	var data Logs
+	_, err := max.DoParse(&data, "GET", "/v3/reporting/logs.json", nil)
+	Go(T).AssertNil(err)
+
+	Go(T).AssertEqual(data.NextPageKey, "1234abcdef")
+	Go(T).AssertEqual(data.Records[0].City, "Brisbane")
+}
